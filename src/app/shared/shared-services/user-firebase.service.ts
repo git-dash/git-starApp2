@@ -7,11 +7,10 @@ import { Observable } from 'rxjs/Observable';
 import { DbFirebaseService } from './db-firebase.service';
 @Injectable()
 export class UserFirebaseService {
-  // user: Observable<firebase.User>;
 
+  constructor(private _dbService: AngularFireDatabase, private _fireAuth:
+    AngularFireAuth, private _sessionUser: DbFirebaseService) {
 
-  constructor(private _dbService: AngularFireDatabase, private _fireAuth: AngularFireAuth, private _sessionUser: DbFirebaseService) {
-    // this.user = this._fireAuth.authState;
   }
 
   getUserList() {
@@ -79,9 +78,6 @@ export class UserFirebaseService {
 
     return this._fireAuth.authState;
   }
-  // loginWithApplication(post) {
-  //   return this._dbService.list('users').valueChanges();
-  // }
 
 
   login(provider, post) {
@@ -98,13 +94,7 @@ export class UserFirebaseService {
     sessionStorage.clear();
     this._fireAuth.auth.signOut();
   }
-  // logoutWithGmail() {
-  //   this._fireAuth.auth.signOut();
-  // }
-  // logoutWithApplication() {
 
-  //   sessionStorage.clear();
-  // }
 
   getUserProfile(userId: any) {
     return this._sessionUser.getDbData('users', 'userUid', userId);

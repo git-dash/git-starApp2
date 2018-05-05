@@ -8,7 +8,7 @@
           <img [src]="shortMovie.poster_path" alt="" class="" class="img-responsive" style="width:150px" />
           <mat-divider style="width:78%; border-color : #ff4081;margin:10px;"> </mat-divider>
           <br>
-          
+
           <span [ngSwitch]="isMovieWatched(shortMovie.id)">
             <p *ngSwitchCase="false">
 
@@ -19,7 +19,7 @@
 
 
               <button mat-raised-button color='accent' (click)='openVideoModal(shortMovie.id, shortMovie.title, shortMovie.release_date, detail.videos)'>
-              Click Here Play </button>
+                Click Here Play </button>
             </p>
             <p *ngSwitchDefault>
 
@@ -38,7 +38,10 @@
 
           <div>
             <!-- {{detail | json}} -->
-            <p> Duration : {{detail.runtime}} </p>
+            <p> Duration : 
+              {{ detail.runtime/60 | number : '1.0-0' }}  Hrs.
+              {{ detail.runtime%60 | number : '1.0-2'  }}  Mins.
+            </p>
             <p> Average : {{detail.vote_average}} </p>
             <p> Tagline : {{detail.tagline}}</p>
             <p> Languages : {{detail.spoken_languages}}</p>

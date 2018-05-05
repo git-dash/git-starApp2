@@ -1,13 +1,16 @@
+<p class="bg-danger text-left" style="height:50px;margin-bottom:100px" fxLayout="row" fxLayoutAlign="center center">
+  <b>
+    Star Residentz! In-Stay App
+  </b>
+</p>
+<div class="container" fxLayout="row" fxLayoutAlign="center center" style="margin-bottom: 100px;">
 
-<div class="container">
+  <div fxFlex fxFlexOrder="1">
 
 
-  <mat-card class="col-lg-4 col-lg-offset-4">
-    <div class="row">
-
+    <mat-card class="col-lg-4 col-lg-offset-4">
       <div class="row">
-
-        <h5 mat-label>Provide Room-Key in any one of the following Way</h5>
+        <h5 mat-label>Provide Room-Key in any one of the following Way :</h5>
 
         <mat-radio-group [(ngModel)]="inputMode">
           <mat-radio-button value="textMode">Enter Room Key</mat-radio-button>
@@ -30,21 +33,53 @@
       </div>
 
 
-      <div class="text-center">
-        <mat-label *ngIf="(key!=null ||  scanKey!= key) && isKeyValid ">
+
+      <!-- <mat-label *ngIf="(key!=null ||  scanKey!= key) && isKeyValid ">
           Provide Valid Key or QR Code
-        </mat-label>
+        </mat-label> -->
 
-     
-        <button mat-raised-button cdkFocusInitial color='warn' 
-        (click) = 'checkRoomKey()'
-        [disabled]='(key==null || key=="")&&(scanKey== null || scanKey=="")'>
 
-          Check In</button>
+      <button mat-raised-button cdkFocusInitial color='warn' (click)='checkRoomKey()' [disabled]='(key==null || key=="")&&(scanKey== null || scanKey=="")'>
+
+        Check In</button>
+
+
+    </mat-card>
+  </div>
+</div>
+
+<div class="container-fluid" fxLayout="row" fxLayout.xs='column' fxLayoutGap='1%' fxLayoutAlign="space-between center">
+
+
+  <mat-card *ngFor="let item of footer" fxFlex='30%'>
+    <mat-card-content>
+      <!-- <img [src]="item.image" alt="Photo of a Shiba Inu" class='footer-image'> -->
+
+      <carousel class='test'>
+        <slide *ngFor="let slide of item.images; let i=index">
+
+          <img [src]="'assets/promo/'+ slide" alt="First slide" style="display: block;height:200px;width:100%">
+        </slide>
+
+      </carousel>
+      <p *ngFor="let desc of item.description; let i=index" style="padding-top:10px;font-family:monospace">
+        {{desc}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<div class="footer">
+  <div class="container-fluid" style="background-color:white; width:98%;border-top:1px solid #cf8196">
+    <div class="row text-center " fxLayout="row " fxLayoutAlign="space-between center ">
+      <div fxFlex="20% " fxFlexOrder="1 ">
+        <img src="assets/logo/mind.jpg " alt=" " srcset=" " style="width: 250px;height: 150px; ">
+      </div>
+      <div fxFlex="80% " fxFlexOrder="2 ">
+        &copy;&nbsp;Mindtree 2018
       </div>
     </div>
 
-  </mat-card>
+  </div>
 </div>
-
-  

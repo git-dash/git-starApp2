@@ -28,6 +28,7 @@
     "bootstrap": "3.3.7",
     "core-js": "^2.4.1",
     "firebase": "^4.11.0",
+    "ngx-bootstrap": "^2.0.2",
     "ng2-qrcode-reader": "0.0.1",
     "ngx-webstorage": "^2.0.1",
     "querybase": "^0.6.0",

@@ -84,47 +84,7 @@ export class DbFirebaseService {
     // this[requestItem];
   }
   resetStoreData(isLogout) {
-    // sessionStorage.clear();
-    // const usr = this._sessionStore.retrieve('currentUser');
-    // this._sessionStore.clear();
-    // if (!isLogout) {
-    //   this._sessionStore.store('currentUser', usr);
-    // }
     this._sessionStore.clear();
-
-  }
-
-
-
-  bookRoom(post, isAvailable) {
-
-    const roomKey = this._dbService.createPushId();
-    post.roomKey = roomKey;
-    const str = post.checkingDetails.checkIn + '-' + post.checkingDetails.checkOut;
-    if (isAvailable.indexOf(str) === -1) {
-      isAvailable.push(str);
-    }
-    // updating room table
-    // this._dbService.list('availableRooms', ref => ref.orderByChild('id').equalTo(post.roomId))
-    //   .update('0', { 'isAvailable': isAvailable });
-
-    this._dbService.database.ref(`availableRooms/${post.roomDetails.id}/isAvailable`).set(isAvailable);
-
-    // this._dbService.list(
-    //   'availableRooms'
-    //   // `availableRooms/${post.roomId}/isAvailable`,
-    // ).update(post.roomDetails.id, { 'isAvailable': isAvailable });
-
-
-    // 8.valueChanges().subscribe(data => { });
-
-    this._dbService.database.ref('bookingDetails').child(roomKey).set(post);
-    return roomKey;
-  }
-
-  getCityList() {
-    return this._dbService.object('hotel').valueChanges();
-    // .map(response => response.);
   }
 
   getDbData(dbName, orderByChild, value: string) {

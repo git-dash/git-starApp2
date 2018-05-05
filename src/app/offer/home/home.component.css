@@ -1,31 +1,18 @@
-
-
-my-nav{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-    font-size: 14px;
-    color: whitesmoke;
-
+.hotel-logo {
+    background-size: cover;
+    background-image: url('./../../../assets/logo/star3.png');
 }
 
-/* [_nghost-c5] {
-    display: inline-block !important;
-    width: 100%;
+mat-action-row span {
+    margin-right: 50px;
+    margin-top: 10px;
 }
-.mat-tab-link-active,
-.mat-tab-label-active {
-    background-color: #5EADB0;
-    color: #D5FEFF;
-    border: 1px solid #6B7F7F;
-    font-weight: bold;
+
+.example-spacer {
+    flex: 1 1 auto;
 }
-.mat-tab-link,
-.mat-tab-label {
-    line-height: 30px !important;
-    height: 30px !important;
-    min-width: 100px !important;
-    border: 1px solid #7e7e7e;
+
+.example-icon {
+    padding: 0 14px;
 }
-.tabContentContainer {
-    border: 1px solid #aaaaaa;
-    background: #ffffff 50% 50% repeat-x;
-} */
+

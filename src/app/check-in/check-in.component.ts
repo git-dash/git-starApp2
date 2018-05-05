@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { CheckInService } from '../shared/shared-services/check-in.service';
 import { DbFirebaseService } from '../shared/shared-services/db-firebase.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   // selector: 'app-check-in',
@@ -13,9 +14,9 @@ import { DbFirebaseService } from '../shared/shared-services/db-firebase.service
 })
 export class CheckInComponent implements OnInit, OnDestroy {
   sample$: Subscription;
+  footer = null;
 
-
-  inputMode = 'textMode';
+  inputMode: String = 'textMode';
 
   dataurl = null;
   elementType = 'url';
@@ -29,9 +30,8 @@ export class CheckInComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.data.roomKey
-    this.key =
-      // '-LACLIdDspNmBgQMRMXH';
-      '-LBGPhXEymPPJC8bQdhr';
+    // this.key = '-LBGPhXEymPPJC8bQdhr';
+    this.footer = environment.footer;
   }
 
   render(e) {
@@ -82,27 +82,18 @@ export class CheckInComponent implements OnInit, OnDestroy {
             // getting movie list
             this.dbService.setStoreData('roomKey', roomKey);
             const checkInData: any = response[0];
-
+            this.dbService.setStoreData('userId', checkInData['userId']);
             const movieList = Object.values(checkInData['usedServices'])
               .filter(x => x.type === 'movie')
               .map(x => x.id);
 
-
-
             const eventList = Object.values(checkInData['usedServices'])
               .filter(x => x.type === 'event')
               .map(x => x.id);
+
             this.dbService.setStoreData('purchasedMovies', movieList);
-
-
-            // this.dbService.setStoreData('purchasedEvents', eventList);
-
-            // a= Object.values(resp[0].usedServices)
-
-            // this.purchasedMovies = this.dbService.getStoreData('purchasedMovies');
-
             this.checkInService.checkInRequest(checkInData.roomKey, 0);
-            this.router.navigate(['/home']);
+            this.router.navigate(['/outlet']);
           } else {
             window.alert('Invalid Key or QR Code');
           }

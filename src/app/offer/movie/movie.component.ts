@@ -41,8 +41,6 @@ export class MovieComponent implements OnInit {
 
     this.searchField = new FormControl();
 
-
-
     this.sample$ =
       this.searchField.valueChanges
         .startWith(null)
@@ -71,31 +69,7 @@ export class MovieComponent implements OnInit {
         });
 
 
-    /*
-// const test
-//   = this.movieService.getMovieList().subscribe(resp => {
-  //     console.log(resp);
-  //     this.sample = resp;
-  //   });
 
-  // this.sample$ =
-  //   this.movieService.getObservableMovieList();
-
-
-  // this.movieService.getObservableMovieList()
-  //   .subscribe(resp => {
-
-    //     this.dataSource$.data = resp;
-    //     this.dataSource$.paginator = this.paginator;
-    //   });
-
-    */
-
-    // this.getMovieList(this.searchField.value, 1);
-
-    // this.searchField.patchValue(
-    //   'popular'
-    // );
 
   }
 
@@ -103,16 +77,6 @@ export class MovieComponent implements OnInit {
 
 
   getMovieList(movieName, pageIndex) {
-
-    // this.subscriptionList = this.movieService.getMovieList(movieName, pageIndex)
-    //   .subscribe(list => {
-    //     this.firstTime = false;
-    //     this.isLoadingResults = false;
-    //     this.sample = list;
-    //     this.dataSource$.data = list.results;
-    //     this.changeDetector.detectChanges();
-    //     this.dataSource$.paginator = this.currentPaginator;
-    //   });
 
     this.isLoadingResults = true;
     this.sample$ = this.movieService.getMovieList(movieName, pageIndex)
@@ -127,27 +91,8 @@ export class MovieComponent implements OnInit {
 
 
   }
-  getObservableDataSource() {
-
-    const element_data = [
-
-      { id: 1, name: 'Hydrogen', progress: 1.0079, color: 'H' },
-      { id: 2, name: 'Helium', progress: 4.0026, color: 'He' },
-      { id: 3, name: 'Lithium', progress: 6.941, color: 'Li' },
-      { id: 4, name: 'Beryllium', progress: 9.0122, color: 'Be' },
-      { id: 5, name: 'Boron', progress: 10.811, color: 'B' },
-      { id: 6, name: 'Thomas', progress: 25.811, color: 'G' },
-
-    ];
 
 
-
-    this.movieService.getObservableDataSource(this.currentPaginator.page, this.firstTime, this.dataSource$.filter)
-      .subscribe(response => {
-        console.log(response);
-        this.dataSource$ = response;
-      });
-  }
 
   getNewList(isNext: boolean) {
 
@@ -157,7 +102,7 @@ export class MovieComponent implements OnInit {
         .debounceTime(400)
         .distinctUntilChanged()
         .do(() => {
-        this.isLoadingResults = true;
+          this.isLoadingResults = true;
           this.currentPage = 1;
           this.total_pages = 1;
         })

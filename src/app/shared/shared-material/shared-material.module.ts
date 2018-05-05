@@ -36,7 +36,7 @@ import { StarComponent } from './star/star.component';
 import { GuestListComponent } from './guest-list/guest-list.component';
 import { BillingListComponent } from './billing-list/billing-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { CarouselModule } from 'ngx-bootstrap';
 
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 @NgModule({
@@ -62,7 +62,7 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
     MatTooltipModule,
     MatExpansionModule,
     MatTableModule,
-    // CarouselModule.forRoot(),
+    CarouselModule.forRoot(),
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
@@ -106,7 +106,7 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
     MatListModule,
     MatMenuModule,
     MatDialogModule,
-    // CarouselModule,
+    CarouselModule,
     MatDividerModule,
     MatAutocompleteModule,
     MatPaginatorModule,

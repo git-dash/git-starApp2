@@ -23,13 +23,13 @@ export const routes: Route[] = [
   // },
 
   {
-    path: '', component: HomeComponent, canActivate: []
+    path: '', component: OutletComponent, canActivate: []
     , children: [
       {
-        path: '', redirectTo: 'outlet'
+        path: '', redirectTo: 'home'
       },
       {
-        path: 'outlet', component: OutletComponent
+        path: 'home', component: HomeComponent
       },
       {
         path: 'movies', component: MovieComponent

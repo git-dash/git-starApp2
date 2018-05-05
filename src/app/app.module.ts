@@ -23,7 +23,7 @@ const routes: Routes = [
     // loadChildren: './pre-stay/pre-stay.module#PreStayModule'
   },
   {
-    path: 'home',
+    path: 'outlet',
     loadChildren: './offer/offer.module#OfferModule'
   },
 
