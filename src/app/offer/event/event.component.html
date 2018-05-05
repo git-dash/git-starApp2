@@ -1,0 +1,59 @@
+<h3 class="text-center">
+  Available Events
+</h3>
+<mat-divider style="border-color : #ff4081;margin:10px;"> </mat-divider>
+<div class="container my-container">
+  <div class="card" *ngFor="let event of eventList; let i=index">
+
+    <mat-card>
+      <img mat-card-image [src]='event.imageURL' />
+      <mat-card-content>
+        <div class="row ">
+          {{event.desc}} 
+          <!-- {{purchasedEvents | json}} -->
+          <br>
+          <!-- <span class="text-center "> AS</span> -->
+          <br>
+
+          <span [ngSwitch]="isEventWatched(event.id)">
+            <p *ngSwitchCase="false">
+              <button mat-raised-button color='warn' (click)='confirmViewOption(event.id,event.desc,event.cost)'>
+                Participate @ {{event.cost |currency:'INR'}}
+              </button>
+            </p>
+            <p *ngSwitchCase="true">
+              <button mat-raised-button color='warn' disabled>
+                Already Registered for event.
+              </button>
+            </p>
+          </span>
+
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+
+
+<!-- <div class="container">
+
+  <div *ngFor="let event of eventList; let i=index" class="col-lg-3" style="padding:10px">
+
+    <mat-card>
+      <img mat-card-image [src]='event.imageURL' />
+      <mat-card-content>
+        <div class="row ">
+          {{event.desc}}
+          <br>
+          <span class="text-center "> AS</span>
+          <br> {{event.cost |currency:'INR'}}
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
+</div> -->

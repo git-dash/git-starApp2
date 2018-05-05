@@ -1,0 +1,92 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+
+      <div class="container col-lg-12" *ngIf="sample$ |async as detail;">
+
+        <div class="col-lg-2">
+          <img [src]="shortMovie.poster_path" alt="" class="" class="img-responsive" style="width:150px" />
+          <mat-divider style="width:78%; border-color : #ff4081;margin:10px;"> </mat-divider>
+          <br>
+          
+          <span [ngSwitch]="isMovieWatched(shortMovie.id)">
+            <p *ngSwitchCase="false">
+
+              <button mat-raised-button color='warn' (click)="confirmViewOption(shortMovie.id,shortMovie.title,shortMovie.release_date,detail.videos,detail.cost) ">
+                Watch Movie @ {{ detail.runtime | currency :'INR' }} </button>
+            </p>
+            <p *ngSwitchCase="true">
+
+
+              <button mat-raised-button color='accent' (click)='openVideoModal(shortMovie.id, shortMovie.title, shortMovie.release_date, detail.videos)'>
+              Click Here Play </button>
+            </p>
+            <p *ngSwitchDefault>
+
+            </p>
+          </span>
+        </div>
+        <div class="col-lg-10 text-left ">
+          <!-- {{shortMovie | json}} -->
+          <p> Title : {{ shortMovie.title}} </p>
+          <p> Release Date : {{ shortMovie.release_date | date:'fullDate'}} </p>
+          <p> Genre : {{ shortMovie.genreList}} </p>
+          <p> Description : {{ shortMovie.overview}} </p>
+          <!-- <p>
+            <button (click)='getMovieDetails(shortMovie.id)'> View Details </button>
+          </p> -->
+
+          <div>
+            <!-- {{detail | json}} -->
+            <p> Duration : {{detail.runtime}} </p>
+            <p> Average : {{detail.vote_average}} </p>
+            <p> Tagline : {{detail.tagline}}</p>
+            <p> Languages : {{detail.spoken_languages}}</p>
+            <p> Cast Details: </p>
+
+            <div class="holder ">
+              <mat-card *ngFor="let cast of detail.cast; ">
+                <img mat-card-image [src]='cast.profile_path' class="profile-photo " />
+                <mat-card-content>
+                  <div class="row ">
+
+
+                    {{cast.name}}
+                    <br>
+                    <span class="text-center "> AS</span>
+                    <br> {{cast.character}}
+
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <p>Direction & Crew Details. </p>
+            <div class="holder ">
+              <mat-card *ngFor="let cast of detail.crew; ">
+                <img mat-card-image [src]='cast.profile_path' class="profile-photo " />
+                <mat-card-content>
+                  <div class="row ">
+
+
+                    {{cast.name}}
+                    <br>
+                    <span class="text-center "> AS</span>
+                    <br> {{cast.character}}
+
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+            <!-- <p>{{detail.crew |json}}</p>
+            <p>{{detail.cast |json}}</p> -->
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

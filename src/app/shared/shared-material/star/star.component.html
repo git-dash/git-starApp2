@@ -1,0 +1,12 @@
+<!-- <div>
+  <span *ngFor="let a of totalStars;let index=index" style="display:inline">
+    <mat-icon class="orange600">
+      {{ index+1
+      <=star ? 'star' : 'star_border'}} </mat-icon>
+  </span>
+</div> -->
+<div style="display: inline">
+  <mat-icon class="orange600" *ngFor="let a of totalStars;let index=index">
+    {{ index+1
+    <=star ? 'star' : 'star_border'}} </mat-icon>
+</div>

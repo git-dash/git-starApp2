@@ -7,7 +7,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CheckInComponent } from './check-in/check-in.component';
 import { environment } from '../environments/environment';
-
+import { SharedMaterialModule } from './shared/shared-material/shared-material.module';
+import { SharedServicesModule } from './shared/shared-services/shared-services.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgQRCodeReaderModule } from 'ng2-qrcode-reader';
 
 const routes: Routes = [
   {
@@ -19,10 +22,10 @@ const routes: Routes = [
     component: CheckInComponent
     // loadChildren: './pre-stay/pre-stay.module#PreStayModule'
   },
-  // {
-  //   path: 'admin',
-  //   loadChildren: './admin/admin.module#AdminModule'
-  // },
+  {
+    path: 'home',
+    loadChildren: './offer/offer.module#OfferModule'
+  },
 
 
 ];
@@ -33,8 +36,13 @@ const routes: Routes = [
     CheckInComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserModule,
+    SharedMaterialModule,
+    SharedServicesModule,
+    NgQRCodeReaderModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],

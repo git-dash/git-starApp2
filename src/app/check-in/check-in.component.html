@@ -1,3 +1,50 @@
-<p>
-  check-in works!
-</p>
+
+<div class="container">
+
+
+  <mat-card class="col-lg-4 col-lg-offset-4">
+    <div class="row">
+
+      <div class="row">
+
+        <h5 mat-label>Provide Room-Key in any one of the following Way</h5>
+
+        <mat-radio-group [(ngModel)]="inputMode">
+          <mat-radio-button value="textMode">Enter Room Key</mat-radio-button>
+          <mat-radio-button value="qrMode">Scan QR</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <hr>
+      <div *ngIf="inputMode=='qrMode'" style="display:flex;justify-content:center; padding: 10px;">
+        <input type="file" (change)="onChange($event)" />
+        <div *ngIf="dataurl!=null">
+          <ng2-qrcode-reader (result)="render($event)" [qrr-show]="false" [qrr-value]="dataurl" [qrr-type]="elementType" [hidden]="true">
+          </ng2-qrcode-reader>
+        </div>
+      </div>
+
+      <div *ngIf="inputMode=='textMode'">
+        <mat-form-field>
+          <input matInput type="text" placeholder="RoomKey" [(ngModel)]='key'>
+        </mat-form-field>
+      </div>
+
+
+      <div class="text-center">
+        <mat-label *ngIf="(key!=null ||  scanKey!= key) && isKeyValid ">
+          Provide Valid Key or QR Code
+        </mat-label>
+
+     
+        <button mat-raised-button cdkFocusInitial color='warn' 
+        (click) = 'checkRoomKey()'
+        [disabled]='(key==null || key=="")&&(scanKey== null || scanKey=="")'>
+
+          Check In</button>
+      </div>
+    </div>
+
+  </mat-card>
+</div>
+
+  

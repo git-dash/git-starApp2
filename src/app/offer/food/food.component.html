@@ -1,0 +1,71 @@
+<h3>
+  Available Foods & Beverages
+</h3>
+
+<div>
+  <button mat-raised-button *ngFor="let option of foodOptions" [color]='option.color' style="margin:0px 10px;" (click)=' changeRegion(option.select)'>
+    {{option.title}}
+  </button>
+</div>
+<mat-divider style="border-color : #ff4081;margin:10px;"> </mat-divider>
+<!-- <div class="text-center my-container container-fluid" style="width:1200px; flex-flow: row wrap" fxLayout="row" fxLayoutAlign="space-around center"
+  fxLayoutGap="2%">
+
+
+  <div fxFlex="20%" *ngFor="let event of selectRegion; let i=index">
+    <mat-card>
+
+      <img mat-card-image [src]='"assets/food/" + event.image' style="height:120px;" />
+      <mat-card-content>
+        <div class="row ">
+          <span> Name : {{event.name}} </span>
+          <span> Desciption : {{event.description}} </span>
+          <br>
+          <span>
+            <button mat-raised-button color='warn' (click)='confirmViewOption(event.id,event.name,event.type,event.cost)'>
+              Buy Food @ {{event.cost |currency:'INR'}}
+            </button>
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div> -->
+
+<div class="container my-container">
+  <div class="card" *ngFor="let event of selectRegion; let i=index">
+
+    <mat-card>
+      <img mat-card-image [src]='"assets/food/" + event.image' />
+      <mat-card-content>
+        <div class="row ">
+          <span> Name : {{event.name}} </span>
+          {{event.desc}}
+          <br>
+          <span class="text-left"> Description : {{event.description}}</span>
+          <br>
+          <br>
+          <div>
+
+            <!-- <mat-icon style=" border:1px solid red;">home </mat-icon> -->
+
+            <button mat-mini-fab color='default' disabled>
+              <!-- [style.border]='event.type=="Non-Vegetarian" ? "1px solid red" : "1px solid green" ' -->
+              <mat-icon class="md-light" [style.color]=" event.type== 'Non-Vegetarian' ? 'red' : 'green'">
+                fiber_manual_record</mat-icon>
+
+            </button>
+
+            <button mat-raised-button color='warn' (click)='confirmViewOption(event.id,event.name,event.type,event.cost)'>
+              Buy Food @ {{event.cost |currency:'INR'}}
+            </button>
+          </div>
+          <!-- {{event.description.length | json}} -->
+
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

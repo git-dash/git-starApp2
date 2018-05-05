@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>
+  Request for Feedback
+</h1>
+
+<div mat-dialog-content>
+
+  <!-- testing testing mike testing {{star}} -->
+  <!-- <br> {{feedbackForm.value | json}} -->
+  <form [formGroup]='feedbackForm' fxLayout="column">
+
+    <!-- <div fxFlex="value%" fxFlexAlign="${start|baseline|center|end}">
+      
+    </div> -->
+
+    <mat-form-field fxFlexOrder='1' fxFlex="100%">
+      <input matInput type="text" placeholder="Feedback" formControlName='message'>
+    </mat-form-field>
+
+
+    <mat-form-field style="display:none">
+      <input matInput type="text" placeholder="Total Guest" formControlName='rating' [(ngModel)]='star'>
+    </mat-form-field>
+
+    <p fxFlexOrder='2'>
+      <span> Rating : </span>
+      <span *ngFor="let a of totalStars;let index=index" style="display:inline">
+        <mat-icon class="orange600" (mouseover)='star=index+1'>
+          {{ index+1
+          <=star ? 'star' : 'star_border'}} </mat-icon>
+      </span>
+    </p>
+  </form>
+</div>
+<div mat-dialog-actions fxLayoutAlign='end end'>
+  <!-- <button mat-raised-button (click)="onNoClick()" color='primary'>No Thanks</button> -->
+  <button mat-raised-button [mat-dialog-close]="feedbackForm.value" cdkFocusInitial [disabled]='!feedbackForm.valid' color='warn'>
+    Checkout</button>
+</div>

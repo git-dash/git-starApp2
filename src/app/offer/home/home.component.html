@@ -1,0 +1,91 @@
+
+
+<!-- <mat-tab-group selectedIndex='2'>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      CheckIn Details
+    </ng-template>
+    <app-outlet></app-outlet>
+
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Movies
+    </ng-template>
+    <h1>GET ANY MOVIES ... :)</h1>
+    <app-movie></app-movie>
+    <p>...</p>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>thumb_down</mat-icon> Food
+    </ng-template>
+    <app-food></app-food>
+    <p>...</p>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>thumb_down</mat-icon> Event
+    </ng-template>
+    <app-event></app-event>
+    <p>...</p>
+  </mat-tab>
+</mat-tab-group> -->
+
+
+
+
+
+
+<!-- <div style="padding: 5px;">
+    <h1>Angular Material 2 Tab Example using md-tab-nav-bar and md-tab-link.</h1>
+    <nav md-tab-nav-bar >
+        <a md-tab-link
+           *ngFor="let routeLink of routeLinks; let i = index;"
+           [routerLink]="routeLink.link"
+           routerLinkActive="mat-tab-link-active"
+           #rla="routerLinkActive"
+           [active]="activeLinkIndex === i"
+           (click)="activeLinkIndex = i"
+           [routerLinkActiveOptions]="{exact: true}"
+        >
+            {{routeLink.label}}
+        </a>
+    </nav>
+<router-outlet></router-outlet> -->
+
+<div class="my-nav">
+<nav mat-tab-nav-bar color='accent' backgroundColor='default' dynamicHeight='true'  style="opacity: 1;" class="text-left">
+
+    <!-- <button mat-raised-button mat-tab-link  [routerLink]='["./"]' style="padding:1px;">
+        <img src="assets/logo/star2.png" style="height:36px;width:36px;"> Star Residentz!
+    </button> -->
+    
+    
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive" 
+       [active]="rla.isActive">       
+
+       <span *ngIf="link.index==0">       
+          <img src="assets/logo/star3.png" style="height:36px;width:36px;"> 
+         {{link.label}}        
+       </span>
+       <span *ngIf="link.index!=0">       
+         {{link.label}}        
+       </span>
+    </a>
+    <button mat-raised-button color='accent' mat-tab-link [routerLink] ='' style="float:right;margin-right:20px;"
+      (click)='logout()'>  
+      Logout
+    </button>
+  </nav>
+  
+  <div style="margin-top:20px;">
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>
+
+

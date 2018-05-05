@@ -1,0 +1,152 @@
+<!-- <p>
+  movie works!
+</p> -->
+<h3>
+  Available Movies
+</h3>
+<mat-divider style="border-color : #ff4081;margin:10px;"> </mat-divider>
+
+<div class="container-fluid" style="padding-bottom: 20px">
+
+  <div class="col-lg-10">
+    <mat-form-field>
+      <input matInput [formControl]='searchField' placeholder="Search Movie By Name">
+    </mat-form-field>
+  </div>
+
+  <div class="col-lg-2 text-right">
+
+    <button mat-raised-button [disabled]='currentPage==1' (click)='getNewList(false)'> See Previous </button>
+    <button mat-raised-button [disabled]='total_pages==currentPage' (click)='getNewList(true)'>See More </button>
+
+  </div>
+</div>
+
+<div *ngIf="sample$ | async as movies;else loading">
+
+
+
+  <div class="col-lg-12" *ngIf="!isLoadingResults;else loading">
+    <div class="container-fluid mat-elevation-z8">
+
+      <mat-table [dataSource]="dataSource$" matSort>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Available Movie List </mat-header-cell>
+          <mat-cell *matCellDef="let row;let index=index">
+            <!-- {{index}} {{row.title}} -->
+            <app-basic-info [shortMovie]='row'>
+
+            </app-basic-info>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+
+      <mat-paginator #currentPaginator [pageSizeOptions]="[5,10,20]"></mat-paginator>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #loading>
+  <div class="col-lg-12" style="display: flex;  justify-content: center;">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+<!-- <div *ngIf="!isLoadingResults && sample.results.length>0"> -->
+<div *ngIf="false">
+
+
+  {{sample.results[0] | json}}
+
+  <div class="container-fluid">
+
+
+    <div class="col-lg-6">
+      <div class="example-container mat-elevation-z8">
+
+        <mat-table [dataSource]="dataSource$" matSort>
+
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Available Movie List </mat-header-cell>
+            <mat-cell *matCellDef="let row;let index=index"> {{index}} {{row.title}} </mat-cell>
+          </ng-container>
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+
+        <mat-paginator #currentPaginator [pageSizeOptions]="[5,20]"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="container">
+
+  <div class="row">
+    <div class="col-lg-4">
+
+      <mat-form-field>
+        <input matInput (keyup)="searchMovie($event.target.value)" placeholder="Search Movie By Name">
+      </mat-form-field>
+    </div>
+    <div class="col-lg-8">
+      <div class="text-right">
+        <ul style="display:flex-inline;">
+          <li>
+            <button mat-raised-button> {{'Page ' + }}</button>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+<!-- 
+<ul>
+  <li *ngFor="let movie of (sample$ |async).results ;let index = index ">
+    {{index}}
+  </li>
+</ul> -->
+
+
+######data table testing.....#############
+
+
+<!-- <div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div> -->
+
+<!-- <div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource$" matSort>
+
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Available Movie List </mat-header-cell>
+      <mat-cell *matCellDef="let row;let index=index"> {{index}} {{row.id}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator #currentPaginator1 [pageSizeOptions]="[5,20]"></mat-paginator>
+</div> -->
+
+
+######data table testing.....#############

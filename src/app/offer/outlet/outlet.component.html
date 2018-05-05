@@ -1,0 +1,90 @@
+<div class="container">
+</div>
+
+<div class="container-fluid text-left" *ngIf="data as book;">
+
+  <mat-toolbar color='default' style="margin-bottom:5px;">
+    <mat-toolbar-row>
+      <span>In Stay Details</span>
+      <span class="example-spacer"></span>
+      <span class="example-icon">
+        <button mat-raised-button color='warn' (click)='checkingStatus(true)' [disabled]='!book.checkingDetails.approval'>
+          Pay {{book.total | currency:'INR'}} & Check Out </button>
+        <!-- <button mat-raised-button color='accent' (click)='logout()'> Logout </button> -->
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <mat-card class="example-card" *ngIf="sample$ |async as book;" style="margin-bottom:10px;"> -->
+  <mat-card class="example-card" style="margin-bottom:10px;">
+    <mat-card-header>
+      <div mat-card-avatar class="hotel-logo"></div>
+      <mat-card-title>
+        {{book.hotelDetails.name}} - {{book.roomDetails.roomType}}
+        <app-star [star]='book.hotelDetails.starClass'></app-star>
+      </mat-card-title>
+      <mat-card-subtitle>Status :{{book.status}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="col-lg-12">
+        <div class="col-lg-4" [style.border-right]="'1px dashed #ddd'">
+          <h5>Hotel Details</h5>
+
+          <p> location : {{book.hotelDetails.location}} </p>
+          <p> address : {{book.hotelDetails.address}} </p>
+          <p> Contact Details : {{book.hotelDetails.phone}} </p>
+
+        </div>
+        <div class="col-lg-2" [style.border-right]="'1px dashed #ddd'">
+          <h5>Room Details</h5>
+          <p> roomType : {{book.roomDetails.roomType}} </p>
+          <p> basicFare : {{book.roomDetails.basicFare}} </p>
+          <p> checkIn : {{book.checkingDetails.checkIn}} </p>
+          <p> checkOut : {{book.checkingDetails.checkOut}} </p>
+        </div>
+        <div class="col-lg-6" [style.border-left]="'1px dashed #ddd'">
+          <h5>Guest Details</h5>
+          <app-guest-list [dataSrc]='book.roomDetails.guestList'>
+          </app-guest-list>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button [disabled]='book.checkingDetails.isCheckOut || !book.checkingDetails.isCheckIn' color='warn' (click)='checkingStatus(false)'>
+        {{ book.checkingDetails.isCheckOut ? 'Check Out Request is Under Process': 'Request for Check Out' }}
+      </button>
+    </mat-card-actions>
+    <mat-card-footer *ngIf="book.checkingDetails.isCheckOut">
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Billing Details
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+
+        <div style="max-height: 300px; overflow-y: auto">
+          <app-billing-list [dataSrc]='book.usedServices'>
+          </app-billing-list>
+        </div>
+        <mat-action-row>
+
+          <span mat-label>
+
+            {{book.checkingDetails.approval ? 'Approved By Hotel' : 'Approval Pending'}}
+          </span>
+          <button mat-raised-button color='warn' (click)='checkingStatus(true)' [disabled]='!book.checkingDetails.approval'>
+            Pay {{book.total | currency:'INR'}} & Check Out
+
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+    </mat-card-footer>
+  </mat-card>
+</div>
