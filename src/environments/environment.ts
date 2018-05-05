@@ -8,8 +8,6 @@ export const movieLinks = {
 };
 export const environment = {
   production: false,
-  roomDefaultLocation: 'assets/images/hotel/',
-  confRoomDefaultLocation: 'assets/images/hotels/',
   firebaseConfig: {
     apiKey: '-',
     authDomain: '-',
