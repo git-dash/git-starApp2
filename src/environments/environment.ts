@@ -8,8 +8,6 @@ export const movieLinks = {
 };
 export const environment = {
   production: false,
-  roomDefaultLocation: 'assets/images/hotel/',
-  confRoomDefaultLocation: 'assets/images/hotels/',
   firebaseConfig: {
     apiKey: 'AIzaSyB-fYlDGvFYdsJb0Li81AW1Ga1gi2Vfksc',
     authDomain: 'test-12375.firebaseapp.com',
@@ -127,8 +125,8 @@ export const environment = {
       'desc': 'ToastMasters International', 'id': 6
     }
 
-  ]
-  , footer: [
+  ],
+  footer: [
     {
       images: [
 

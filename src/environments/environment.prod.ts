@@ -1,15 +1,9 @@
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const movieLinks = {
     api_key: 'b12176cbe4608313502b204789b0dbb8'
 };
 export const environment = {
     production: true,
-    roomDefaultLocation: 'assets/images/hotel/',
-    confRoomDefaultLocation: 'assets/images/hotels/',
     firebaseConfig: {
         apiKey: 'AIzaSyB-fYlDGvFYdsJb0Li81AW1Ga1gi2Vfksc',
         authDomain: 'test-12375.firebaseapp.com',
@@ -127,8 +121,8 @@ export const environment = {
             'desc': 'ToastMasters International', 'id': 6
         }
 
-    ]
-    , footer: [
+    ],
+    footer: [
         {
             images: [
 
@@ -216,7 +210,7 @@ export const environment = {
                 'cost': 411,
                 'type': 'Vegetarian',
                 'description': `Street food usually containing a potato patty fried
-                in oil, topped with sweet yogurt, and other sauces, spices`
+                     in oil, topped with sweet yogurt, and other sauces, spices`
             }, {
                 'id': 7,
                 'name': 'Chana masala',
@@ -1010,8 +1004,3 @@ export const environment = {
             }]
     }
 };
-
-
-
-
-
