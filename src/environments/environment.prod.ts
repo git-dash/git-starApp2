@@ -215,7 +215,7 @@ export const environment = {
                 'image': 'Delhi_Chaat_with_saunth_chutney.jpg',
                 'cost': 411,
                 'type': 'Vegetarian',
-                'description': `Street food usually containing a potato patty fried 
+                'description': `Street food usually containing a potato patty fried
                 in oil, topped with sweet yogurt, and other sauces, spices`
             }, {
                 'id': 7,
