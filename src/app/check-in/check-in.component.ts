@@ -25,6 +25,7 @@ export class CheckInComponent implements OnInit, OnDestroy {
   data: any = {
   };
   isKeyValid: boolean = null;
+  enteredValidKey = false;
   constructor(private checkInService: CheckInService, private router: Router, private dbService: DbFirebaseService) { }
 
 
@@ -36,6 +37,7 @@ export class CheckInComponent implements OnInit, OnDestroy {
 
   render(e) {
     this.scanKey = e.result;
+    this.enteredValidKey = true;
     //  console.log(e.result);
 
   }
@@ -57,10 +59,10 @@ export class CheckInComponent implements OnInit, OnDestroy {
       // reset key
       this.scanKey = null;
       fi.readAsDataURL(files[0]);
+    } else {
+      this.scanKey = null;
     }
   }
-
-
 
   checkRoomKey() {
     // reset validation step
