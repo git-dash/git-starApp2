@@ -3,12 +3,11 @@
 
     <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
 
-      <span *ngIf="link.index==0">
-        <img src="assets/logo/star3.png" style="height:36px;width:36px;"> {{link.label}}
+      <span>
+        <img [src]="link.icon" style="height:36px;width:36px;margin-right:5px;"> {{ link.label}}
       </span>
-      <span *ngIf="link.index!=0">
-        {{link.label}}
-      </span>
+
+
     </a>
 
     <div style="float:right;margin-right:20px;">

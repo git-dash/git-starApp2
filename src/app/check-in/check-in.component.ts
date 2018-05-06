@@ -41,7 +41,6 @@ export class CheckInComponent implements OnInit, OnDestroy {
   }
 
 
-
   onChange(event) {
     this.elementType = 'dataurl';
     const files = event.srcElement.files;

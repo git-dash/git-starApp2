@@ -15,7 +15,7 @@ import { environment } from '../../../environments/environment';
 export class OutletComponent implements OnInit {
   userEmail: string;
 
-  navLinks: { label: string; path: string; index: number; }[];
+  navLinks: { icon: string, label: string; path: string; index: number; }[];
 
   constructor(private dbService: DbFirebaseService, private router: Router) { }
 
@@ -25,10 +25,10 @@ export class OutletComponent implements OnInit {
     this.userEmail = this.dbService.getStoreData('userId');
     this.navLinks =
       [
-        { label: 'Star Residentz! ', path: './home', index: 0 },
-        { label: 'Movie', path: './movies', index: 2 },
-        { label: 'Food', path: './food', index: 3 },
-        { label: 'Event', path: './event', index: 4 },
+        { icon: 'assets/logo/star3.png', label: 'Star Residentz! ', path: './home', index: 0 },
+        { icon: 'assets/logo/nav-movie.png', label: 'Movie', path: './movies', index: 2 },
+        { icon: 'assets/logo/nav-food1.png', label: 'Food', path: './food', index: 3 },
+        { icon: 'assets/logo/nav-event.png', label: 'Event', path: './event', index: 4 },
       ];
   }
 
