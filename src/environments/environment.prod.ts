@@ -1,17 +1,18 @@
 
+
 export const movieLinks = {
-    api_key: 'b12176cbe4608313502b204789b0dbb8'
+  api_key: '-'
 };
 export const environment = {
-    production: true,
-    firebaseConfig: {
-        apiKey: 'AIzaSyB-fYlDGvFYdsJb0Li81AW1Ga1gi2Vfksc',
-        authDomain: 'test-12375.firebaseapp.com',
-        databaseURL: 'https://test-12375.firebaseio.com',
-        projectId: 'test-12375',
-        storageBucket: 'test-12375.appspot.com',
-        messagingSenderId: '926446553362'
-    },
+  production: true,  
+  firebaseConfig: {
+    apiKey: '-',
+    authDomain: '-',
+    databaseURL: '-',
+    projectId: '-',
+    storageBucket: '-',
+    messagingSenderId: '-',
+  },
     appBillingListTableColumns: [
         'id',
         'type',
