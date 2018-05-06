@@ -51,7 +51,7 @@ export class BasicInfoComponent implements OnInit {
       {
         height: '250px',
         data: {
-          title: 'Movie ', confirmMessage: `Do you want to Watch Movie:`, from: 'MovieComponent',
+          title: `Movie - ${title}` , confirmMessage: `Do you want to Watch Movie:`, from: 'MovieComponent',
           cost: cost
         }
       }

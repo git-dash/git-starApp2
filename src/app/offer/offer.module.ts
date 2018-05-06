@@ -13,6 +13,7 @@ import { SharedMaterialModule } from '../shared/shared-material/shared-material.
 import { PlayVideoComponent } from './movie/play-video/play-video.component';
 import { BasicInfoComponent } from './movie/basic-info/basic-info.component';
 import { SafeVideoPipe } from '../shared/filters/safe-video.pipe';
+import { FeedbackComponent } from './home/feedback/feedback.component';
 
 
 
@@ -53,9 +54,10 @@ export const routes: Route[] = [
     SharedMaterialModule,
     RouterModule.forChild(routes)
   ],
+  entryComponents: [FeedbackComponent, PlayVideoComponent],
   declarations: [
     HomeComponent, OutletComponent, MovieComponent, EventComponent, FoodComponent
-    , BasicInfoComponent, PlayVideoComponent, SafeVideoPipe
+    , BasicInfoComponent, PlayVideoComponent, SafeVideoPipe, FeedbackComponent
   ]
 })
 export class OfferModule { }

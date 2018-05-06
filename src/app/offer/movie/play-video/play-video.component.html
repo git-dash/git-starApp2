@@ -5,23 +5,24 @@
 </h1>
 
 <div fxLayout="row" fxLayoutAlign="center start">
-  <!-- {{data.title}} {{data.videos | json}} -->
+  
   <div fxFlex="20%" fxFlexOrder="2">
 
     <ol>
       <li *ngFor="let video of data.videos; let i=index" (click)='changeVideo(video.key)'>
-        <!-- {{video.type + '-' + video.name}}  -->
-        {{video.type}}
+    
+        <a>
+          {{video.type}}
+        </a>
       </li>
     </ol>
 
-    {{videoSource}}
+    
   </div>
 
   <div fxFlex="80%" fxFlexOrder="1">
 
-    <!-- // "//www.youtube.com/embed/YE7VzlLtp-4"  -->
-    <!-- <iframe width="560" height="315" src='//www.youtube.com/embed/YE7VzlLtp-4' frameborder="0" allowfullscreen></iframe> -->
+
     <iframe width="800" height="500" [src]='videoSource | safeVideo' frameborder="0" allowfullscreen></iframe>
 
   </div>
