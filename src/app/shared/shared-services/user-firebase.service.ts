@@ -22,7 +22,7 @@ export class UserFirebaseService {
     // register into firebase
 
     return this._fireAuth.auth.createUserWithEmailAndPassword(post.email, post.password).then(response => {
-      console.log(response);
+      //  console.log(response);
 
       this._fireAuth.auth.currentUser.updateProfile(
         {
@@ -30,13 +30,11 @@ export class UserFirebaseService {
           // phoneNumber: post.mobile,
           photoURL: ''
         }
-      ).then(resp => { console.log(resp); }, error => { console.log(error); });
-
-
-      // this._fireAuth.auth.currentUser.sendEmailVerification()
-      //   .then(resp => { console.log(resp); }, error => { console.log(error); });
-      // this._fireAuth.auth.currentUser.up
-
+      ).then(resp => {
+        //  console.log(resp);
+      }, error => {
+        //  console.log(error);
+      });
       const pushId = this._dbService.createPushId();
       this._dbService.database.ref('users').child(pushId).set
         ({
@@ -49,27 +47,11 @@ export class UserFirebaseService {
           'pushId': pushId,
           'userUid': response.uid
         });
-
-      // return {
-      //   'error': false,
-      //   'message': 'Registered Succuessfully ! Please search hotel or Kindly Update Profile'
-      // };
-      // alert('Registered Succuessfully ! Please search hotel or Kindly Update Profile');
     }
       , error => {
-        console.log(error);
-        // return error;
-        // return {
-        //   'error': true,
-        //   'message': error.message
-        // };
+        //  console.log(error);
+
       });
-    //    this.loginForm.reset();
-    //  send mail
-
-
-    // sst = nul;
-    // adad().then(suc(),erro());
 
   }
 
@@ -119,7 +101,7 @@ export class UserFirebaseService {
         alert('Profile Updated Successfully');
       })
       .catch(error => {
-        console.log();
+        //  console.log();
       });
 
   }

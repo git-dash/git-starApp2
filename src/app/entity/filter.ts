@@ -22,7 +22,7 @@ export class FilterValues {
                 filterValues.indexOf(el.roomType) >= 0;
         });
 
-        // console.log(temp2);
+         //  console.log(temp2);
         return temp2;
     }
     serviceTypePipe(value, commonService) {
@@ -38,7 +38,7 @@ export class FilterValues {
 
 
 
-        console.log(temp3);
+        //  console.log(temp3);
 
         return temp3;
     }

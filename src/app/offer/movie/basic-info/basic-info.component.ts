@@ -21,12 +21,12 @@ export class BasicInfoComponent implements OnInit {
   constructor(private movieService: MovieService, private dialog: MatDialog, private dbService: DbFirebaseService) { }
   ngOnInit(): void {
     //  throw new Error("Method not implemented.");
-    console.log('came in basic info card');
+    //  console.log('came in basic info card');
     this.purchasedMovies = this.dbService.getStoreData('purchasedMovies') || [];
     this.sample$ =
       this.movieService.getMovieDetails(this.shortMovie.id)
         .do(data => {
-          console.log(data);
+          //  console.log(data);
           if (this.purchasedMovies
             .findIndex(mov => mov === data.id) > -1) {
             this.purchasedMovies.push(data.id);
@@ -39,7 +39,7 @@ export class BasicInfoComponent implements OnInit {
   getMovieDetails(movieId) {
 
 
-    // console.log(this.movieService.getMovieDetails(movieId));
+     //  console.log(this.movieService.getMovieDetails(movieId));
     this.sample$ =
       this.movieService.getMovieDetails(movieId)
       ;
@@ -59,17 +59,17 @@ export class BasicInfoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       if (result === true) {
-        console.log('The dialog was closed' + result);
+        //  console.log('The dialog was closed' + result);
         this.dbService.addServiceIntoBillingModal(id, 'movie', title, cost)
           .then(response => {
-            console.log(response);
+            //  console.log(response);
 
             this.purchasedMovies.push(id);
             this.dbService.setStoreData('purchasedMovies', this.purchasedMovies);
             this.openVideoModal(id, title, releaseDate, videoList);
           });
       } else {
-        console.log('The dialog was closed');
+        //  console.log('The dialog was closed');
 
       }
     });
@@ -82,7 +82,7 @@ export class BasicInfoComponent implements OnInit {
 
 
 
-    console.log(id, title, releaseDate, JSON.stringify(videoList));
+    //  console.log(id, title, releaseDate, JSON.stringify(videoList));
 
 
 
@@ -100,7 +100,7 @@ export class BasicInfoComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      //  console.log('The dialog was closed');
       // this.animal = result;
     });
 

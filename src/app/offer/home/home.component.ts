@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.checkInService
         .checkRoomKey(roomKey)
         .subscribe((data: any) => {
-          console.log(data);
+          //  console.log(data);
 
           if (data.length !== 0) {
 
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed' + result);
+      //  console.log('The dialog was closed' + result);
 
       if (result !== undefined) {
 
@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe(result => {
 
-      console.log(result);
+      //  console.log(result);
 
 
       if (successfulCheckout) {

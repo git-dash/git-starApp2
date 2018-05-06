@@ -47,7 +47,7 @@ export class DbFirebaseService {
   getHotelList(searchDetail: any) {
 
     // this._dbService.list('bookingDetails').valueChanges().subscribe(data => {
-    //   console.log(data);
+    //   //  console.log(data);
     // });
     return this._dbService.list('hotel', ref => ref.orderByChild('location').equalTo(searchDetail.location)).valueChanges();
     // return this.getAllHotelList('all');
@@ -63,7 +63,7 @@ export class DbFirebaseService {
     this._dbService.list('availableRooms', ref => ref.orderByChild('hotelId').equalTo('0'))
       .valueChanges()
       .subscribe(x => {
-        console.log('all rooms  for 0: ' + x);
+        //  console.log('all rooms  for 0: ' + x);
       });
 
     return this._dbService.list('availableRooms', ref => ref.orderByChild('hotelId').equalTo(hotelId))

@@ -36,7 +36,7 @@ export class CheckInComponent implements OnInit, OnDestroy {
 
   render(e) {
     this.scanKey = e.result;
-    console.log(e.result);
+    //  console.log(e.result);
 
   }
 
@@ -44,7 +44,7 @@ export class CheckInComponent implements OnInit, OnDestroy {
   onChange(event) {
     this.elementType = 'dataurl';
     const files = event.srcElement.files;
-    console.log(files);
+    //  console.log(files);
     const fi = new FileReader();
 
     fi.onload =
@@ -72,7 +72,7 @@ export class CheckInComponent implements OnInit, OnDestroy {
       this.checkInService
         .checkRoomKey(roomKey)
         .subscribe(response => {
-          console.log(response);
+          //  console.log(response);
 
           if (response.length !== 0) {
             this.isKeyValid = true;

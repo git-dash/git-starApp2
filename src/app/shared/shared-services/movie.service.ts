@@ -52,7 +52,7 @@ export class MovieService {
     return this.httpClient
       .get(requestURL)
       .map((data: any) => {
-        console.log(data);
+        //  console.log(data);
         const test = {
           id: movieId,
           runtime: data.runtime,

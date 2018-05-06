@@ -34,7 +34,7 @@ export class CheckInService {
 
             });
 
-            console.log(isAvailable);
+            //  console.log(isAvailable);
             const noBook = roomData.noBook + 1;
             const totalRating = roomData.totalRating + feedbackRating;
             // set new isAvailable
@@ -65,12 +65,12 @@ export class CheckInService {
 
   checkRoomKey(roomKey: string) {
 
-    console.log('came here', roomKey);
+    //  console.log('came here', roomKey);
 
     // this._dbService.list('bookingDetails')
     //   .valueChanges().subscribe(
     //   resp => {
-    //     console.log(resp);
+    //     //  console.log(resp);
 
     //   }
     //   );
@@ -98,14 +98,14 @@ export class CheckInService {
     const st = this._dbService.database.ref(id)
       .update(attribute)
       .then(response => {
-        console.log(response);
+        //  console.log(response);
       })
       .catch(error => {
-        console.log(error);
+        //  console.log(error);
       });
 
     // .subscribe(response => {
-    //   console.log(response);
+    //   //  console.log(response);
 
     // });
 

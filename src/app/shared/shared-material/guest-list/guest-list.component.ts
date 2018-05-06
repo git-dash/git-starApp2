@@ -14,8 +14,8 @@ export class GuestListComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    // console.log(this.dataSrc);
-    // console.log(this.displayedColumns);
+     //  console.log(this.dataSrc);
+     //  console.log(this.displayedColumns);
 
     this.guestDataSource = new MatTableDataSource(this.dataSrc);
     this.guestColumns = environment.appGuestListTableColumns;

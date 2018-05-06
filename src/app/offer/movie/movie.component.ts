@@ -123,7 +123,7 @@ export class MovieComponent implements OnInit {
           }
         });
 
-    console.log(this.currentPaginator);
+    //  console.log(this.currentPaginator);
 
   }
 

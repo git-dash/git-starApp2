@@ -45,17 +45,17 @@ export class EventComponent implements OnInit {
 
       if (result === true) {
         // this.openVideoModal()
-        console.log('The dialog was closed' + result);
+        //  console.log('The dialog was closed' + result);
         this.dbService.addServiceIntoBillingModal(id, 'event', title, cost)
           .then(response => {
-            console.log(response);
+            //  console.log(response);
 
             this.purchasedEvents.push(id);
             this.dbService.setStoreData('purchasedEvents', this.purchasedEvents);
             // this.openVideoModal(id, title, releaseDate, videoList);
           });
       } else {
-        console.log('The dialog was closed');
+        //  console.log('The dialog was closed');
 
       }
     });

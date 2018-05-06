@@ -68,15 +68,15 @@ export class FoodComponent implements OnInit {
 
       if (result === true) {
         // this.openVideoModal()
-        console.log('The dialog was closed' + result);
+        //  console.log('The dialog was closed' + result);
         this.dbService.addServiceIntoBillingModal(id, `'event'`, name, cost)
           .then(response => {
-            console.log(response);
+            //  console.log(response);
 
             // this.openVideoModal(id, title, releaseDate, videoList);
           });
       } else {
-        console.log('The dialog was closed');
+        //  console.log('The dialog was closed');
 
       }
     });

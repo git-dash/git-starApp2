@@ -16,8 +16,8 @@ export class BillingListComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    // console.log(this.dataSrc);
-    // console.log(this.displayedColumns);
+     //  console.log(this.dataSrc);
+     //  console.log(this.displayedColumns);
 
     this.dataSource = new MatTableDataSource(this.dataSrc);
     this.displayedColumns = environment.appBillingListTableColumns;

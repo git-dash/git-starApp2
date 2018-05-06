@@ -18,7 +18,7 @@ export class StarComponent implements OnChanges {
   ngOnChanges() {
     this.totalStars = new Array(5);
     // this.msg = this.message;
-    // console.log(this.message);
+     //  console.log(this.message);
 
   }
 
